@@ -20,12 +20,19 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
         - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
 ##### ローカルでのビルド  
-ファイル内容書き換えたら毎回buildする  
+- ファイル内容書き換えたら毎回buildする  
 `sam build --use-container`  
   
-ローカルでビルドしたコンテナ環境内でlambda実行  
+- ローカルでビルドしたコンテナ環境内でlambda実行  
 `sam local invoke HelloWorldFunction --event (file_path/event.json)`  
 → `sam local invoke HelloWorldFunction --event ./events/event.json`  
+  
+- パッケージ化  
+`sam package --s3-bucket (bucket名) --output-template-file packaged.yaml`  
+→ `sam package --s3-bucket huro3h-lambda-function --output-template-file packaged.yaml`  
+  
+- 作ったLambdaを ClowdFormation で deploy  
+`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`
   
 参考:  
 AWS LambdaでNokogiriを動かす - Qiita  
