@@ -15,7 +15,8 @@ GUI操作だけでRubyでやろうと思ったら入れたnativeなgemが動か�
   - API Gateway
   - Lambda
   - S3
-  - IAM
+  - IAM  
+  - (CloudFormation)
 - ローカル側(mac)
   - aws-sam
     - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
