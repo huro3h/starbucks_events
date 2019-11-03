@@ -7,18 +7,22 @@ GUI操作だけでRubyでやろうと思ったら入れたnativeなgemが動か�
 いっぱい調べることに  
   
 ##### 用意したもの  
+- Slack  
+  - 投稿用 Workspace & Channel  
+  - incoming webhook  
+  - outgoing webhook
 - AWS  
-    - API Gateway
-    - Lambda
-    - S3
-    - IAM
+  - API Gateway
+  - Lambda
+  - S3
+  - IAM
 - ローカル側(mac)
-    - aws-sam
-        - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
-        - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
-        よしなにやってくれるべんりツール
-    - pyenv  
-        - aws-samをpip経由で入れるが、ついでにVer管理したかったので
+  - aws-sam
+    - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
+    - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
+    よしなにやってくれるべんりツール
+- pyenv  
+  - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
 ##### ローカルでのビルド ~ deploy
 - ファイル内容書き換えたら毎回buildする  
