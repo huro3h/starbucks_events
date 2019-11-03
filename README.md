@@ -19,7 +19,7 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
     - pyenv  
         - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
-##### ローカルでのビルド  
+##### ローカルでのビルド ~ deploy
 - ファイル内容書き換えたら毎回buildする  
 `sam build --use-container`  
   
