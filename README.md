@@ -13,7 +13,7 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
     - IAM
 - ローカル側(mac)
     - aws-sam
-        - Rubyでnativeなgem使うのにLambda上では動かないらしいので  
+        - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
         - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
         よしなにやってくれるべんりツール
     - pyenv  
