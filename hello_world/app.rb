@@ -16,7 +16,7 @@ def lambda_handler(event:, context:)
     event_descriptions << element.text
   end
 
-  { "text": event_descriptions }
+  { "text": JSON.generate(event_descriptions) }
 
   # {
   #   statusCode: 200,
