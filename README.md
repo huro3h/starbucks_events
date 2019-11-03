@@ -1,5 +1,5 @@
 ##### starbucks_events is 何?  
-SlackのChannelで、任意の単語をフックにして  
+SlackのChannelで任意の単語をフックにして  
 特定店舗のイベント一覧を雑に取得してChannelに結果を返すChatOps的なやつ  
 
 用意したもの  
