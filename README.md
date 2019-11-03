@@ -32,8 +32,15 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
 → `sam package --s3-bucket huro3h-lambda-function --output-template-file packaged.yaml`  
   
 - 作ったLambdaを ClowdFormation で deploy  
-`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`
+`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`  
   
+##### WIP: AWS側での操作  
+CloudFormationでできたAPI Gatewayを一旦削除し、  
+postメソッドを設定する必要がある  
+  
+メソッド設定の際、Slackからのメッセージを以下のコードで  
+
+
 参考:  
 AWS LambdaでNokogiriを動かす - Qiita  
 https://qiita.com/Y_uuu/items/85c86df8773f7c225521  
