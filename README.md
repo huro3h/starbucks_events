@@ -10,7 +10,9 @@ SlackのChannelで任意の単語をフックにして
     - IAM
 - ローカル側(mac)
     - aws-sam
-        - Rubyでnativeなgem使うのにLambda上では動かないらしいので
+        - Rubyでnativeなgem使うのにLambda上では動かないらしいので  
+        - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
+        よしなにやってくれるべんりツール
     - pyenv  
         - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
