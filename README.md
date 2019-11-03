@@ -1,6 +1,21 @@
-### starbucks_events is 何?  
+##### starbucks_events is 何?  
+SlackのChannelで、任意の単語をフックにして  
+特定店舗のイベント一覧を雑に取得してChannelに結果を返すChatOps的なやつ  
 
-
+用意したもの  
+- AWS  
+    - API Gateway
+    - Lambda
+    - S3
+    - IAM
+- ローカル側(mac)
+    - aws-sam
+        - Rubyでnativeなgem使うのにLambda上では動かないらしいので
+    - pyenv  
+        - aws-samをpip経由で入れるが、ついでにVer管理したかったので
+  
+あと思い出したらかく  
+    
 
 # starbucks_events
 
