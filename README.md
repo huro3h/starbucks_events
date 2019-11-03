@@ -1,6 +1,7 @@
 ##### starbucks_events is 何?  
 SlackのChannelで任意の単語をフックにして  
-特定店舗のイベント一覧を雑に取得してChannelに結果を返すChatOps的なやつ  
+特定店舗のイベント一覧を雑に取得してChannelに結果を返す  
+ServerlessでChatOps的なやつ  
   
 AWS LambdaのGUI操作だけでRubyでやろうと思ったら  
 入れたnativeなgemが動かないやら何だかよくわからないわ状態...🤷‍♀️  
