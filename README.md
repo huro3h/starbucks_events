@@ -1,7 +1,10 @@
 ##### starbucks_events is 何?  
 SlackのChannelで任意の単語をフックにして  
 特定店舗のイベント一覧を雑に取得してChannelに結果を返すChatOps的なやつ  
-
+  
+GUI操作でRubyでやろうと思ったら入れたgemが動かないやら  
+いっぱい調べることに  
+  
 用意したもの  
 - AWS  
     - API Gateway
@@ -16,9 +19,18 @@ SlackのChannelで任意の単語をフックにして
     - pyenv  
         - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
-あと思い出したらかく  
-    
-
+参考:  
+AWS LambdaでNokogiriを動かす - Qiita  
+https://qiita.com/Y_uuu/items/85c86df8773f7c225521  
+  
+AWS SAMでLambda関数を作成 - わくわくBank  
+https://www.wakuwakubank.com/posts/640-aws-sam/  
+  
+Macで1からPythonの環境構築をしていく - Qiita  
+https://qiita.com/f_kazqi/items/217c55f02d32f845c7cf  
+  
+あと思い出したらなんか書く 🙃  
+  
 # starbucks_events
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
