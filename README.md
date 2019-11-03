@@ -5,7 +5,7 @@ SlackのChannelで任意の単語をフックにして
 GUI操作でRubyでやろうと思ったら入れたgemが動かないやら  
 何だかよくわからないわ状態。いっぱい調べることに  
   
-用意したもの  
+##### 用意したもの  
 - AWS  
     - API Gateway
     - Lambda
@@ -18,6 +18,14 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
         よしなにやってくれるべんりツール
     - pyenv  
         - aws-samをpip経由で入れるが、ついでにVer管理したかったので
+  
+##### ローカルでのビルド  
+ファイル内容書き換えたら毎回buildする  
+`sam build --use-container`  
+  
+ローカルでビルドしたコンテナ環境内でlambda実行  
+`sam local invoke HelloWorldFunction --event (file_path/event.json)`  
+→ `sam local invoke HelloWorldFunction --event ./events/event.json`  
   
 参考:  
 AWS LambdaでNokogiriを動かす - Qiita  
