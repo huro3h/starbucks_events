@@ -31,7 +31,7 @@ GUI操作でRubyでやろうと思ったら入れたgemが動かないやら
 `sam package --s3-bucket (bucket名) --output-template-file packaged.yaml`  
 → `sam package --s3-bucket huro3h-lambda-function --output-template-file packaged.yaml`  
   
-- 作ったLambdaを ClowdFormation で deploy  
+- 作ったLambdaを CloudFormation で deploy  
 `aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`  
   
 ##### WIP: AWS側での操作  
