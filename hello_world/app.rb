@@ -1,6 +1,7 @@
 # require 'httparty'
 # require 'json'
 # require 'mechanize'
+# require 'slack-notifier'
 
 require "bundler/setup"
 Bundler.require
@@ -16,7 +17,10 @@ def lambda_handler(event:, context:)
     event_descriptions << element.text
   end
 
-  { "text": JSON.generate(event_descriptions) }
+  title = page.title
+  formatted_text = event_descriptions.join('\n').gsub("\\n", "\n")
+
+  to_slack(title, formatted_text)
 
   # {
   #   statusCode: 200,
@@ -25,6 +29,17 @@ def lambda_handler(event:, context:)
   #     # location: response.body
   #   }.to_json
   # }
+end
+
+def to_slack(title, formatted_text)
+  notifier = Slack::Notifier.new(ENV["SLACK_INCOMING_WEBHOOK_URL"])
+  attachments = {
+    fallback: 'This is article notifier attachment',
+    title: title,
+    text: formatted_text,
+    color: '#036635'
+  }
+  notifier.post(attachments: attachments)
 end
 
 # def debug
@@ -37,7 +52,7 @@ end
 #     event_descriptions << element.text
 #   end
 
-#   p event_descriptions
+#   p formatted_text = event_descriptions.join("\n")
 # end
 
 # debug
