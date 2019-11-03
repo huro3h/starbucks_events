@@ -22,8 +22,8 @@ GUI操作だけでRubyでやろうと思ったら入れたnativeなgemが動か�
     - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
     - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
     よしなにやってくれるべんりツール
-- pyenv  
-  - aws-samをpip経由で入れるが、ついでにVer管理したかったので
+  - pyenv  
+    - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
 ##### ローカルでのビルド ~ deploy
 - ファイル内容書き換えたら毎回buildする  
