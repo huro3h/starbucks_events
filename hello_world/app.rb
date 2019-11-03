@@ -12,7 +12,6 @@ def lambda_handler(event:, context:)
 
   event_descriptions = []
   page.search('li.linkBox').search('p').each do |element|
-    p element
     next if element.text == ""
     event_descriptions << element.text
   end
