@@ -12,7 +12,7 @@ def lambda_handler(event:, context:)
 
   event_descriptions = page.search('li.linkBox').search('p').map(&:text).reject(&:empty?)
   formatted_text = event_descriptions.join('\n').gsub("\\n", "\n")
-  title = page.titlee
+  title = page.title
 
   to_slack(title, formatted_text)
 
