@@ -22,7 +22,7 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   - aws-sam
     - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
     - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
-    よしなにやってくれるべんりツール
+    よしなにやってくれるServerlessFramework
   - pyenv  
     - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
