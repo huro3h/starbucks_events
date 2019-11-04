@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'starbucks_events
+
+  Sample SAM Template for starbucks_events
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://huro3h-lambda-function/bc14ee6802fbaf25fdef180f0ef75935
+      Handler: app.lambda_handler
+      Runtime: ruby2.5
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /stage3
+            Method: post
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/stage3/
+  HelloWorldFunction:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionRole
+      - Arn
