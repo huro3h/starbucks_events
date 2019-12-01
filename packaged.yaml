@@ -17,24 +17,25 @@ Resources:
       Runtime: ruby2.5
       Events:
         HelloWorld:
-          Type: Api
-          Properties:
-            Path: /stage3
-            Method: post
+          # Type: Api
+          # Properties:
+          #   Path: /stage3
+          #   Method: post
 Outputs:
-  HelloWorldApi:
-    Description: API Gateway endpoint URL for Prod stage for Hello World function
-    Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/stage3/
   HelloWorldFunction:
-    Description: Hello World Lambda Function ARN
-    Value:
-      Fn::GetAtt:
-      - HelloWorldFunction
-      - Arn
-  HelloWorldFunctionIamRole:
-    Description: Implicit IAM Role created for Hello World function
-    Value:
-      Fn::GetAtt:
-      - HelloWorldFunctionRole
-      - Arn
+  Description: Hello World Lambda Function ARN
+  Value:
+    Fn::GetAtt:
+    - HelloWorldFunction
+    - Arn
+  # HelloWorldApi:
+  #   Description: API Gateway endpoint URL for Prod stage for Hello World function
+  #   Value:
+  #     Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/stage3/
+
+  # HelloWorldFunctionIamRole:
+  #   Description: Implicit IAM Role created for Hello World function
+  #   Value:
+  #     Fn::GetAtt:
+  #     - HelloWorldFunctionRole
+  #     - Arn
