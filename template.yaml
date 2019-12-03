@@ -5,8 +5,7 @@ Description: >
   Sample SAM Template for starbucks_events
 Globals:
   Function:
-    Timeout: 3
-
+    Timeout: 30
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
