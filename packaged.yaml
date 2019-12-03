@@ -9,7 +9,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://huro3h-lambda-function/bc14ee6802fbaf25fdef180f0ef75935
+      CodeUri: s3://huro3h2020-lambda-function/bc4794e645d4a03f59cc4d02cd96825e
       Handler: app.lambda_handler
       Runtime: ruby2.5
 Outputs:
