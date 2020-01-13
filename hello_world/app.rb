@@ -24,6 +24,7 @@ def to_slack(title, formatted_text)
   attachments = {
     fallback: 'This is article notifier attachment',
     title: title,
+    title_link: "https://store.starbucks.co.jp/detail-1225/",
     text: formatted_text,
     color: '#036635'
   }
