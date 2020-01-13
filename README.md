@@ -1,4 +1,4 @@
-##### starbucks_events is 何?  
+#### starbucks_events is 何?  
 SlackのChannelで任意の単語をフックにして  
 特定店舗のイベント一覧を雑に取得してChannelに結果を返す  
 ServerlessでChatOps的なやつ  
@@ -7,7 +7,7 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
 入れたnativeなgemが動かないやら何だかよくわからないわ状態...🤷‍♀️  
 結局いっぱい調べることに  
   
-##### 用意したもの  
+#### 用意したもの  
 - Slack  
   - 投稿用 Workspace & Channel  
   - incoming webhook  
@@ -26,14 +26,16 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   - pyenv  
     - aws-samをpip経由で入れるが、ついでにVer管理したかったので
   
-##### ローカルでのビルド ~ deploy
-- ファイル内容書き換えたら毎回buildする  
+#### ローカルでのビルド ~ deploy
+##### ファイル内容書き換えたら毎回buildする  
 ビルドにめっちゃ時間かかるようになってる。2,3分くらい  
 (--use-container のハイフンの数に注意、間違えると bundlerがエラー何とか言われる)  
-`sam build --use-container`  
   
-(ビルド成功例)  
+`$ sam build --use-container`  
+  
+  
 ```
+$ sam build --use-container
 Starting Build inside a container
 Building resource 'HelloWorldFunction'
 
@@ -55,20 +57,40 @@ Running RubyBundlerBuilder:RubyBundle
 Running RubyBundlerBuilder:RubyBundleDeployment
 ```
   
-- ローカルでビルドしたコンテナ環境内でlambda実行  
+##### ローカルでビルドしたコンテナ環境内でlambda関数実行  
 `sam local invoke HelloWorldFunction --event (file_path/event.json)`  
 → `sam local invoke HelloWorldFunction --event ./events/event.json`  
   
-- パッケージ化  
-`sam package --s3-bucket (bucket名) --output-template-file packaged.yaml`  
-→ `sam package --s3-bucket huro3h2020-lambda-function --output-template-file packaged.yaml`  
-  
-- 作ったLambdaを CloudFormation で deploy  
+##### パッケージ化  
+`$ sam package --s3-bucket (bucket名) --output-template-file packaged.yaml`  
+
+```
+$ sam package --s3-bucket huro3h2020-lambda-function --output-template-file packaged.yaml
+Uploading to 19681ba653b5f135a9e9bf2e3007eb67  21408764 / 21408764.0  (100.00%)
+
+Successfully packaged artifacts and wrote output template to file packaged.yaml.
+Execute the following command to deploy the packaged template
+sam deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name <YOUR STACK NAME>
+```
+
+
+##### 作ったLambda関数をデプロイ  
 (sam-cliのバージョンあげたらコマンド変わってた)  
+- 初回だけ `--guided` オプションが必要  
+  - 対話式でいろいろ聞かれた後、 `samconfig.toml` (config)ファイルが作られる
+  - 2回目からのデプロイはコンフィグファイルから設定読むので `--guided` なしでも大丈夫
+
+
 ~`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`~  
   
 `sam deploy --guided --template-file /your/file/path/to/packaged.yaml --stack-name your-stack-name --capabilities CAPABILITY_IAM`  
 -> `sam deploy --guided --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h2020-20190214 --capabilities CAPABILITY_IAM`
+  
+##### 生成された samconfig.tomlについて  
+- git管理していいのかわからん
+  - stack_name, s3_bucket名, regionとか平文で書いてある
+- 今のところ上げずに手元で管理
+
   
 ##### WIP: AWS側での操作  
 CloudFormationでできたAPI Gatewayを一旦削除し、  
