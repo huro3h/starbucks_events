@@ -39,7 +39,11 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
 → `sam package --s3-bucket huro3h-lambda-function --output-template-file packaged.yaml`  
   
 - 作ったLambdaを CloudFormation で deploy  
-`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`  
+(sam-cliのバージョンあげたらコマンド変わってた)  
+~`aws cloudformation deploy --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h-sample --capabilities CAPABILITY_IAM`~  
+  
+`sam deploy --guided --template-file /your/file/path/to/packaged.yaml --stack-name your-stack-name --capabilities CAPABILITY_IAM`  
+-> `sam deploy --guided --template-file /Users/satoshiii/myProjects/starbucks_events/packaged.yaml --stack-name huro3h2020-20190214 --capabilities CAPABILITY_IAM`
   
 ##### WIP: AWS側での操作  
 CloudFormationでできたAPI Gatewayを一旦削除し、  
