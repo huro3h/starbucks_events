@@ -28,7 +28,7 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   
 ##### ローカルでのビルド ~ deploy
 - ファイル内容書き換えたら毎回buildする  
-(--use-container のハイフンの数に注意、間違えると bundlerがエラー何とか言われる)
+(--use-container のハイフンの数に注意、間違えると bundlerがエラー何とか言われる)  
 `sam build --use-container`  
   
 - ローカルでビルドしたコンテナ環境内でlambda実行  
