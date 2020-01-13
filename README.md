@@ -37,7 +37,7 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   
 - パッケージ化  
 `sam package --s3-bucket (bucket名) --output-template-file packaged.yaml`  
-→ `sam package --s3-bucket huro3h-lambda-function --output-template-file packaged.yaml`  
+→ `sam package --s3-bucket huro3h2020-lambda-function --output-template-file packaged.yaml`  
   
 - 作ったLambdaを CloudFormation で deploy  
 (sam-cliのバージョンあげたらコマンド変わってた)  
