@@ -1,10 +1,12 @@
-# require 'httparty'
-# require 'json'
-# require 'mechanize'
-# require 'slack-notifier'
-
 require "bundler/setup"
 Bundler.require
+
+# require 'httparty'
+# require 'json'
+
+### additional
+# gem 'mechanize'
+# gem 'slack-notifier'
 
 def handler(event:, context:)
   agent = Mechanize.new
@@ -22,6 +24,7 @@ def to_slack(title, formatted_text)
   attachments = {
     fallback: 'This is article notifier attachment',
     title: title,
+    title_link: "https://store.starbucks.co.jp/detail-1225/",
     text: formatted_text,
     color: '#036635'
   }

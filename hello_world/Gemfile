@@ -1,14 +1,8 @@
 source "https://rubygems.org"
 
 gem "httparty"
+require 'json'
 
 ### additional
 gem 'mechanize'
 gem 'slack-notifier'
-
-
-group :test do
-  gem "test-unit"
-  gem "mocha"
-end
-
