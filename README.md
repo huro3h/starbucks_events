@@ -28,8 +28,32 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   
 ##### ローカルでのビルド ~ deploy
 - ファイル内容書き換えたら毎回buildする  
+ビルドにめっちゃ時間かかるようになってる。2,3分くらい  
 (--use-container のハイフンの数に注意、間違えると bundlerがエラー何とか言われる)  
 `sam build --use-container`  
+  
+(ビルド成功例)  
+```
+Starting Build inside a container
+Building resource 'HelloWorldFunction'
+
+Fetching lambci/lambda:build-ruby2.5 Docker container image......
+Mounting /Users/satoshiii/myProjects/starbucks_events/hello_world as /tmp/samcli/source:ro,delegated inside runtime container
+
+Build Succeeded
+
+Built Artifacts  : .aws-sam/build
+Built Template   : .aws-sam/build/template.yaml
+
+Commands you can use next
+=========================
+[*] Invoke Function: sam local invoke
+[*] Deploy: sam deploy --guided
+
+Running RubyBundlerBuilder:CopySource
+Running RubyBundlerBuilder:RubyBundle
+Running RubyBundlerBuilder:RubyBundleDeployment
+```
   
 - ローカルでビルドしたコンテナ環境内でlambda実行  
 `sam local invoke HelloWorldFunction --event (file_path/event.json)`  
