@@ -14,6 +14,12 @@ def handler(event:, context:)
 
   event_descriptions = page.search('li.linkBox').search('p').map(&:text).reject(&:empty?)
   formatted_text = event_descriptions.join('\n').gsub("\\n", "\n")
+  temporary_business_hours = page.search('ul.hoursOfStore').search('span').map(&:text).uniq.join('n').tr("\\n", "\n")
+
+  # 臨時営業時間が存在する場合、メッセージに追加する
+  if temporary_business_hours
+    formatted_text << temporary_business_hours
+  end
   title = page.title
 
   to_slack(title, formatted_text)
