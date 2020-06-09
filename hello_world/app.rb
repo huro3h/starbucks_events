@@ -18,7 +18,7 @@ def handler(event:, context:)
 
   # 臨時営業時間が存在する場合、メッセージに追加する
   if temporary_business_hours
-    formatted_text << '下記の日程は臨時の営業時間となります。'
+    formatted_text << '下記の日程は臨時の営業時間となります。\n'
     formatted_text << temporary_business_hours
   end
   title = page.title
