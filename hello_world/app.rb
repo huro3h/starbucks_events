@@ -8,9 +8,11 @@ Bundler.require
 # gem 'mechanize'
 # gem 'slack-notifier'
 
+STORE_DETAIL_URL = "https://store.starbucks.co.jp/detail-1225/"
+
 def handler(event:, context:)
   agent = Mechanize.new
-  page = agent.get("https://store.starbucks.co.jp/detail-1225/")
+  page = agent.get(STORE_DETAIL_URL)
 
   event_descriptions = page.search('li.linkBox').search('p').map(&:text).reject(&:empty?)
   formatted_text = event_descriptions.join('\n').gsub("\\n", "\n")
@@ -31,7 +33,7 @@ def to_slack(title, formatted_text)
   attachments = {
     fallback: 'This is article notifier attachment',
     title: title,
-    title_link: "https://store.starbucks.co.jp/detail-1225/",
+    title_link: STORE_DETAIL_URL,
     text: formatted_text,
     color: '#036635'
   }
