@@ -26,8 +26,8 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
   よしなにやってくれるServerlessFramework
 - pyenv  
-- aws-samを入れるまでの経由管理ツール
-brew -> pyenv -> aws-sam
+- aws-samを入れるまでの経由管理ツール  
+`brew -> pyenv -> aws-sam`
 
 #### ローカルでのビルド ~ deploy
 ##### ファイル内容書き換えたら毎回buildする  
