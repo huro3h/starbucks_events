@@ -19,13 +19,16 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   - IAM  
   - (CloudFormation)
 - ローカル側(mac)
-  - aws-sam
-    - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
-    - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
-    よしなにやってくれるServerlessFramework
-  - pyenv  
-    - aws-samをpip経由で入れるが、ついでにVer管理したかったので
-  
+
+#### 環境設定(mac)  
+- aws-sam
+  - Rubyでnativeなgem使うのにそのままのLambda上では動かないらしいので  
+  - ローカルのDockerコンテナ内でgemのインストールから、実行環境から  
+  よしなにやってくれるServerlessFramework
+- pyenv  
+- aws-samを入れるまでの経由管理ツール
+brew -> pyenv -> aws-sam
+
 #### ローカルでのビルド ~ deploy
 ##### ファイル内容書き換えたら毎回buildする  
 ビルドにめっちゃ時間かかるようになってる。2,3分くらい  
