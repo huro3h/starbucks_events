@@ -27,7 +27,8 @@ AWS LambdaのGUI操作だけでRubyでやろうと思ったら
   よしなにやってくれるServerlessFramework
 - pyenv  
 - aws-samを入れるまでの経由管理ツール  
-`brew -> pyenv -> aws-sam`
+`brew -> pyenv -> aws-sam`  
+  - brew経由のpyenv upgradeしたらパス通し直す `source .zshrc` または `source .zprofile` 
 
 #### ローカルでのビルド ~ deploy
 ##### ファイル内容書き換えたら毎回buildする  
